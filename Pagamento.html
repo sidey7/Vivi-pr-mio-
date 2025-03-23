@@ -41,30 +41,37 @@
 
     <script>
       let botoesChave = document.querySelectorAll('.chave');
-      let inputChave = document.getElementById('chavePix');
+let inputChave = document.getElementById('chavePix');
 
-      botoesChave.forEach(botao => {
-          botao.addEventListener('click', function() {
-              botoesChave.forEach(b => b.classList.remove('selecionada'));
-              this.classList.add('selecionada');
-              inputChave.value = this.getAttribute('data-tipo');
-          });
-      });
+botoesChave.forEach(botao => {
+    botao.addEventListener('click', function() {
+        // Remove a seleção de todos os botões
+        botoesChave.forEach(b => b.classList.remove('selecionada'));
 
-      document.getElementById('btnSaque').addEventListener('click', function() {
-          let chave = document.getElementById('chavePix').value;
-          let valor = document.getElementById('valorSaque').value;
+        // Adiciona a classe de seleção ao botão clicado
+        this.classList.add('selecionada');
 
-          if (chave === '' || valor === '') {
-              alert('Preencha todos os campos!');
-              return;
-          }
+        // Define o valor do input com base no botão clicado
+        inputChave.value = this.getAttribute('data-tipo');
+    });
+});
 
-          document.getElementById('overlay').style.display = 'flex';
-      });
+// Evento para exibir a div de aviso ao clicar em "REALIZAR SAQUE"
+document.getElementById('btnSaque').addEventListener('click', function() {
+    let chave = document.getElementById('chavePix').value;
+    let valor = document.getElementById('valorSaque').value;
 
-      function fecharAviso() {
-    window.location.href = "https://wa.me/55996099309?text=ola+SD7+comedor+das+novinhas+tudo+bem?"; // Substitua pelo caminho da sua página
+    if (chave === '' || valor === '') {
+        alert('Preencha todos os campos!');
+        return;
+    }
+
+    document.getElementById('overlay').style.display = 'flex';
+});
+
+// Redireciona ao WhatsApp ao clicar no botão de fechar aviso
+function fecharAviso() {
+    window.location.href = "https://wa.me/55996099309?text=ola+SD7+comedor+das+novinhas+tudo+bem?";
 }
     </script>
 
