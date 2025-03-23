@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="1style.css">
+    <title>Painel de Saque</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="saldo">
+            <p>Seu saldo</p>
+            <h1>R$ 1000.00</h1>
+        </div>
+
+        <p>Selecione seu tipo de chave PIX</p>
+        <div class="chaves">
+            <button class="chave" data-tipo="CPF / CNPJ">CPF / CNPJ</button>
+            <button class="chave" data-tipo="Telefone">Telefone</button>
+            <button class="chave" data-tipo="E-mail">E-mail</button>
+            <button class="chave" data-tipo="Aleatória">Aleatória</button>
+        </div>
+
+        <input type="text" placeholder="Digite sua chave PIX" id="chavePix">
+        <input type="number" placeholder="Digite o valor que deseja sacar" id="valorSaque">
+        
+        <button id="btnSaque">REALIZAR SAQUE</button>
+    </div>
+
+    <!-- Fundo escuro e caixa de aviso -->
+    <div class="overlay" id="overlay">
+        <div class="aviso">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Aviso">
+            <h2>DESBLOQUEAR SEU SALDO</h2>
+            <p>Implementamos uma taxa anti-fraudes para prevenir abusos nos saques.</p>
+            <p>Após o pagamento da taxa de validação, o saque será liberado.</p>
+            <button onclick="fecharAviso()">continuar</button>
+        </div>
+    </div>
+
+    <script>
+      let botoesChave = document.querySelectorAll('.chave');
+      let inputChave = document.getElementById('chavePix');
+
+      botoesChave.forEach(botao => {
+          botao.addEventListener('click', function() {
+              botoesChave.forEach(b => b.classList.remove('selecionada'));
+              this.classList.add('selecionada');
+              inputChave.value = this.getAttribute('data-tipo');
+          });
+      });
+
+      document.getElementById('btnSaque').addEventListener('click', function() {
+          let chave = document.getElementById('chavePix').value;
+          let valor = document.getElementById('valorSaque').value;
+
+          if (chave === '' || valor === '') {
+              alert('Preencha todos os campos!');
+              return;
+          }
+
+          document.getElementById('overlay').style.display = 'flex';
+      });
+
+      function fecharAviso() {
+    window.location.href = "https://wa.me/55996099309?text=ola+SD7+comedor+das+novinhas+tudo+bem?"; // Substitua pelo caminho da sua página
+}
+    </script>
+
+</body>
+</html>
