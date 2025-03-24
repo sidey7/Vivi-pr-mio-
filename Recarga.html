@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recarga e Saque</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #5e2b97, #9c27b0);
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #4a148c;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1em;
+    }
+
+    .valores {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .valores h2 {
+      font-size: 1.6em;
+      margin-bottom: 30px;
+    }
+
+    .opcoes-recarga {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .opcao {
+      background-color: white;
+      color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      width: 150px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .opcao:hover {
+      transform: scale(1.05);
+    }
+
+    .opcao strong {
+      font-size: 1.3em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .opcao span {
+      display: block;
+      font-size: 0.95em;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #7b1fa2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #9c27b0;
+    }
+
+    .mensagem {
+      display: none;
+      text-align: center;
+      background-color: #fff;
+      color: #333;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Recarga e Saque</h1>
+    <p>Recarregue um valor para liberar o saque do seu saldo!</p>
+  </header>
+
+  <section class="valores">
+    <h2>Escolha um valor para recarregar</h2>
+
+    <div class="opcoes-recarga">
+      <div class="opcao">
+        <strong>R$ 40,00</strong>
+        <span>Libera saque + até 10GB de bônus</span>
+        <button onclick="mostrarMensagem('presente', 'pasta40')">Recarregar</button>
+      </div>
+
+      <div class="opcao">
+        <strong>R$ 30,00</strong>
+        <span>Libera saque + até 10GB de bônus</span>
+        <button onclick="mostrarMensagem('medio', 'pasta30')">Recarregar</button>
+      </div>
+
+      <div class="opcao">
+        <strong>R$ 25,00</strong>
+        <span>Libera saque + 2GB de bônus</span>
+        <button onclick="mostrarMensagem('medio', 'pasta25')">Recarregar</button>
+      </div>
+
+      <div class="opcao">
+        <strong>R$ 20,00</strong>
+        <span>Libera saque + 1GB de bônus</span>
+        <button onclick="mostrarMensagem('avaliado', 'pasta20')">Recarregar</button>
+      </div>
+    </div>
+
+    <div id="mensagem" class="mensagem"></div>
+  </section>
+
+  <script>
+    function mostrarMensagem(tipo, pasta) {
+      const msgDiv = document.getElementById('mensagem');
+      let mensagem = '';
+
+      if (tipo === 'presente') {
+        mensagem = "Você escolheu o valor máximo! Para liberar o saque e receber seu presente, finalize o pagamento.";
+      } else if (tipo === 'avaliado') {
+        mensagem = "Você escolheu o valor mínimo. O saque será avaliado após o pagamento.";
+      } else {
+        mensagem = "Sua recarga foi registrada. Finalize o pagamento para liberar o saque.";
+      }
+
+      msgDiv.innerText = mensagem;
+      msgDiv.style.display = 'block';
+
+      // Redireciona após 3 segundos
+      setTimeout(() => {
+        window.location.href = "https://wa.me/5598996099309?text=olá+SD7+queria+rodar+no+quizz";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

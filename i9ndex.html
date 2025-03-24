@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="style.css">
+    <title>Vivo premiação</title>
+</head>
+<body>
+    <nav>
+        <img src="vivolog.png" alt="Logo Vivo"> <!-- Logo -->
+        <h1>100,00</h1> <!-- Saldo formatado -->
+    </nav>
+
+    <div class="quiz-card">
+<img src="app.jpg" alt="Imagem do Quiz">
+        <h2>Qual é o aplicativo oficial da Vivo para gerenciar seu plano?</h2>
+
+        <div class="opcoes">
+            <button class="opcao" onclick="selecionarOpcao(this)">Meu Vivo</button>
+            <button class="opcao" onclick="selecionarOpcao(this)">Vivo Play</button>
+            <button class="opcao" onclick="selecionarOpcao(this)">Vivo Fácil</button>
+            <button class="opcao" onclick="selecionarOpcao(this)">Vivo Control</button>
+        </div>
+
+
+        <button id="confirmar" onclick="confirmarResposta()">Confirmar</button>
+        <div id="resultado"></div>
+    </div>
+</div>
+
+
+
+     <!-- Div oculta para mostrar o prêmio -->
+<!-- Div oculta para mostrar o prêmio -->
+<div id="premio" class="premio">🎉 Parabéns! Você ganhou R$75,00! 🎉</div>
+
+<audio id="somPremio" src="csht.mp3"></audio> <!-- Som de moedas -->
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

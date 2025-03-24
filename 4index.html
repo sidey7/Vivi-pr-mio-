@@ -1,0 +1,93 @@
+     <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet"href="style.css">
+    <title>Vivo Premiação</title>
+</head>
+<body>
+    <nav>
+        <img src="vivolog.png" alt="Logo Vivo"> <!-- Logo -->
+        <h1>593,00</h1> <!-- Saldo formatado -->
+    </nav>
+
+    <div class="quiz-card">
+      <img src="APN-Vivo.jpg" alt="Imagem do Quiz">
+        <h2>O que significa Vivo Valoriza?</h2>
+
+        <div class="opcoes">
+            <button class="opcao" onclick="selecionarOpcao(this)">Um serviço de atendimento</button>
+            <button class="opcao" onclick="selecionarOpcao(this)">Um plano pós-pago exclusivo</button>
+            <button class="opcao" onclick="selecionarOpcao(this)">Um programa de benefícios para clientes</button>
+            <button class="opcao" onclick="selecionarOpcao(this)">Um tipo de conexão 5G</button>
+        </div>
+
+        <button id="confirmar" onclick="confirmarResposta()">Confirmar</button>
+        <div id="resultado"></div>
+    </div>
+
+                <!-- Div oculta para mostrar o prêmio -->
+<div id="premio" class="premio">🎉 Parabéns! Você ganhou R$90,00! 🎉</div>
+
+<audio id="somPremio" src="csht.mp3"></audio> <!-- Som de moedas -->
+
+    </div>
+
+<!-- Áudio do som de premiação -->
+<audio id="somPremio" src="csht.mp3"></audio>
+
+    </div>
+
+    <script>
+      let opcaoSelecionada = null;
+
+function selecionarOpcao(botao) {
+    // Remove a seleção de outros botões
+    document.querySelectorAll(".opcao").forEach(btn => {
+        btn.classList.remove("selecionado");
+    });
+
+    // Marca a opção selecionada
+    botao.classList.add("selecionado");
+    opcaoSelecionada = botao.innerText;
+}
+
+function confirmarResposta() {
+    if (opcaoSelecionada) {
+        let premioDiv = document.getElementById("premio");
+        let som = document.getElementById("somPremio");
+
+        premioDiv.style.display = "block"; // Exibe a div
+        som.play(); // Toca o som
+
+        setTimeout(() => {
+            premioDiv.style.display = "none"; // Esconde a div após 3 segundos
+            window.location = "5index.html"; // Redireciona após 3 segundos
+        }, 3000);
+    } else {
+        alert("Escolha uma opção antes de confirmar!");
+    }
+}
+    </script>
+    
+</body>
+</html>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
